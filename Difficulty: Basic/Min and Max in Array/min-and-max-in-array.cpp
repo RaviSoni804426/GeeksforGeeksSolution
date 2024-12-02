@@ -4,25 +4,20 @@ using namespace std;
 
 
 // } Driver Code Ends
-// User function Template for C++
+// User function Template for C+
+
 class Solution {
   public:
-    pair<long long, long long> getMinMax(vector<long long int> arr) {
-        int n = arr.size();
-        long long mn = 1e18, mx = -1;
+    pair<long long, long long> getMinMax(vector<long long> arr) {
+        long long min = LLONG_MAX;
+        long long max = LLONG_MIN;
 
-        // Iterating over the array
-        for (int i = 0; i < n; i++) {
-
-            // Updating the minimum value
-            mn = min(arr[i], mn);
-
-            // Updating the maximum value
-            mx = max(arr[i], mx);
+        for (long long num : arr) { // Range-based for loop for simplicity
+            if (num < min) min = num;
+            if (num > max) max = num;
         }
 
-        // Returning the minimum and maximum values as a pair
-        return {mn, mx};
+        return {min, max}; // Return the pair of min and max
     }
 };
 
