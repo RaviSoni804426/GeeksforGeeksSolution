@@ -1,15 +1,20 @@
-// User function template for C++
 class Solution {
   public:
-    bool twoSum(vector<int>& arr, int t) {
+    bool twoSum(vector<int>& arr, int target) {
         // code here
+         sort(arr.begin(),arr.end());
         int n=arr.size();
-        unordered_map<int,int>mp;
-        for(int x:arr){
-            if(mp[t-x]) return true;
-            mp[x]=1;
+        int start=0,end=n-1;
+        while(start<end)
+        {
+            if(arr[start]+arr[end]==target)
+                return true;
+            else if(arr[start]+arr[end]>target)
+                end--;
+            else
+                start++;
         }
         return false;
-        
+    
     }
 };
